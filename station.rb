@@ -63,9 +63,7 @@ class Station
   end
 
   # метод принимает блок и проходит по всем поездам на станции, передавая каждый поезд в блок
-  def iterate_trains
-    @trains.each do |train|
-      yield train
-    end
+  def each_train
+    @trains.each {|train| yield train} if block_given?
   end
 end

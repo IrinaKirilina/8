@@ -414,7 +414,7 @@ class RailRoad
     if train_number && train_type
       train = find_train(train_number, train_type)
       if train 
-        train.iterate_cars do |car|
+        train.each_car do |car|
           puts "Вагон №#{car.number} #{car.type}, количество свободных мест: #{train.cars.count}"
         end
       end
@@ -430,7 +430,7 @@ class RailRoad
     station_name = gets.chomp
     station = find_station(station_name)
     if station
-      station.iterate_trains do |train|
+      station.each_train do |train|
         puts "Поезд №#{train.number} #{train.type}, количество свободных вагонов: #{car.free_capacity.lengh}"
       end
     else

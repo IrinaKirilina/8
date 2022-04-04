@@ -115,10 +115,8 @@ class Train
   end
   
   # метод принимает блок и проходит по всем вагонам поезда, передавая каждый объект вагона в блок
-  def iterate_cars
-    @cars.each do |car|
-      yield car
-    end
+  def each_car
+    @cars.each {|car| yield car} if block_given?
   end
 
   def find_car(number)
